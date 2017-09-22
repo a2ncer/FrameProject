@@ -1,7 +1,3 @@
-//
-// Created by alex on 9/20/17.
-//
-
 #ifndef FRAMEPROJECT_CANDIDATESREPOSITORY_H
 #define FRAMEPROJECT_CANDIDATESREPOSITORY_H
 
@@ -13,7 +9,8 @@ class CandidatesRepository {
 public:
     CandidatesRepository(IDataReader &dataReader);
     void save(Candidate &candidate);
-    Candidate & findByFrameAndClass(int frameId, std::string);
+    std::vector<Candidate> findByFrameAndClass(long int frameId, std::string);
+    std::vector<Candidate> findAll();
 private:
     std::vector<Candidate> repository;
 };

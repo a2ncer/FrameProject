@@ -4,7 +4,7 @@
 
 #include "GroundTruth.h"
 
-int GroundTruth::getFrameNumber() const {
+long int GroundTruth::getFrameNumber() const {
     return frameNumber;
 }
 
@@ -20,7 +20,7 @@ void GroundTruth::setClassName(const std::string &className) {
     GroundTruth::className = className;
 }
 
-double GroundTruth::getLeft() const {
+long int GroundTruth::getLeft() const {
     return left;
 }
 
@@ -28,7 +28,7 @@ void GroundTruth::setLeft(double left) {
     GroundTruth::left = left;
 }
 
-double GroundTruth::getTop() const {
+long int GroundTruth::getTop() const {
     return top;
 }
 
@@ -36,7 +36,7 @@ void GroundTruth::setTop(double top) {
     GroundTruth::top = top;
 }
 
-double GroundTruth::getWidth() const {
+long int GroundTruth::getWidth() const {
     return width;
 }
 
@@ -44,7 +44,7 @@ void GroundTruth::setWidth(double width) {
     GroundTruth::width = width;
 }
 
-double GroundTruth::getHeight() const {
+long int GroundTruth::getHeight() const {
     return height;
 }
 

@@ -1,23 +1,27 @@
-//
-// Created by alex on 9/20/17.
-//
-
 
 #include "GroundTruthRepository.h"
 
 
 GroundTruthRepository::GroundTruthRepository(IDataReader &dataReader) {
 
+    std::vector<std::vector<std::string>> data = dataReader.exportData();
+    for (auto &line : data) {
 
+        if (line.size() == 6) {
+            GroundTruth groundTruth;
 
-    auto lines = dataReader.exportData();
+            groundTruth.setFrameNumber(std::stol(line[0]));
+            groundTruth.setClassName(line[1]);
+            groundTruth.setLeft(std::stol(line[2]));
+            groundTruth.setTop(std::stol(line[3]));
+            groundTruth.setWidth(std::stol(line[4]));
+            groundTruth.setHeight(std::stol(line[5]));
 
-    for (auto &line : lines) {
-        for (const auto &cell : line) {
-            std::cout<< cell << "  ";
+            this->save(groundTruth);
+
         }
 
-        std::cout << std::endl;
+
     }
 
 
@@ -28,15 +32,21 @@ void GroundTruthRepository::save(GroundTruth &groundTruth) {
     this->repository.push_back(groundTruth);
 }
 
-GroundTruth & GroundTruthRepository::findByFrameAndClass(int frameId, std::string className) {
+std::vector<GroundTruth> GroundTruthRepository::findByFrameAndClass(long int frameId, std::string className) {
 
-        for (auto &item : this->repository) {
-            if(item.getFrameNumber() == frameId && item.getClassName() == className)
-                return item;
-        }
-
-        return (GroundTruth &) NULL;
+    std::vector<GroundTruth> finded;
+    for (auto &item : this->repository) {
+        if (item.getFrameNumber() == frameId /*&& item.getClassName().compare(className)==0*/)
+            finded.push_back(item);
     }
+
+    return finded;
 }
+
+std::vector<GroundTruth> GroundTruthRepository::findAll() {
+    return this->repository;
+}
+
+
 
 

@@ -11,7 +11,7 @@
 #include <sstream>
 #include <exception>
 #include "IDataReader.h"
-
+#include <string>
 class CSVReader: public IDataReader {
 
 public:
@@ -21,6 +21,12 @@ public:
 private:
     std::string filePath;
     std::vector<std::vector<std::string>> lines;
+
+    std::string trim_left(const std::string &str);
+
+    std::string trim_right(const std::string &str);
+
+    std::string trim(const std::string &str);
 };
 
 

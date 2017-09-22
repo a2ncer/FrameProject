@@ -8,17 +8,21 @@ CandidatesRepository::CandidatesRepository(IDataReader &dataReader) {
     std::vector<std::vector<std::string>> data = dataReader.exportData();
     for (auto &line : data) {
 
-        if(line.size() == 7) {
+        if (line.size() == 7) {
             Candidate candidate;
 
-            candidate.setFrameNumber(strtol(line[0]));
+            candidate.setFrameNumber(std::stol(line[0]));
             candidate.setClassName(line[1]);
-            candidate.setConfidence(strtod(line[2]));
-            candidate.setTop(strtod(line[3]));
-            candidate.setLeft();
+            candidate.setConfidence(std::stod(line[2]));
+            candidate.setLeft(std::stol(line[3]));
+            candidate.setTop(std::stol(line[4]));
+            candidate.setWidth(std::stol(line[5]));
+            candidate.setHeight(std::stol(line[6]));
+
+
+            this->save(candidate);
 
         }
-
 
 
     }
@@ -30,12 +34,20 @@ void CandidatesRepository::save(Candidate &candidate) {
     this->repository.push_back(candidate);
 }
 
-Candidate & CandidatesRepository::findByFrameAndClass(int frameId, std::string className) {
+std::vector<Candidate> CandidatesRepository::findByFrameAndClass(long int frameId, std::string className) {
+
+    std::vector<Candidate> finded;
 
     for (auto &item : this->repository) {
-        if(item.getFrameNumber() == frameId && item.getClassName() == className)
-            return item;
+        if (item.getFrameNumber() == frameId && item.getClassName().compare(className)==0)
+            finded.push_back(item);
     }
 
-    return (Candidate &) NULL;
+    return finded;
+
+
+}
+
+std::vector<Candidate> CandidatesRepository::findAll() {
+    return this->repository;
 }

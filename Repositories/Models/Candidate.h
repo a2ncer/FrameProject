@@ -8,7 +8,7 @@
 #include <iostream>
 class Candidate {
 public:
-    int getFrameNumber() const;
+    long int getFrameNumber() const;
 
     void setFrameNumber(int frameNumber);
 
@@ -20,30 +20,30 @@ public:
 
     void setConfidence(double confidence);
 
-    double getLeft() const;
+    long int getLeft() const;
 
     void setLeft(double left);
 
-    double getTop() const;
+    long int getTop() const;
 
     void setTop(double top);
 
-    double getWidth() const;
+    long int getWidth() const;
 
     void setWidth(double width);
 
-    double getHeight() const;
+    long int getHeight() const;
 
     void setHeight(double height);
 
 private:
-    int frameNumber;
+    long int frameNumber;
     std::string className;
     double confidence;
-    double left;
-    double top;
-    double width;
-    double height;
+    long int left;
+    long int top;
+    long int width;
+    long int height;
 };
 
 
