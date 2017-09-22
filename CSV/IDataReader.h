@@ -6,9 +6,11 @@
 #define FRAMEPROJECT_IDATAREADER_H
 
 
+#include <vector>
+#include <iostream>
 class IDataReader {
 public:
-    virtual void exportData()= 0;
+    virtual std::vector<std::vector<std::string>> exportData()= 0;
 
 };
 

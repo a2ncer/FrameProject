@@ -7,10 +7,16 @@
 
 #include <iostream>
 #include "../CSV/IDataReader.h"
+#include "Models/GroundTruth.h"
+
 
 class GroundTruthRepository {
 public:
     GroundTruthRepository(IDataReader &dataReader);
+    void save(GroundTruth &groundTruth);
+    GroundTruth & findByFrameAndClass(int frameId, std::string className);
+private:
+    std::vector<GroundTruth> repository;
 };
 
 

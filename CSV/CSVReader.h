@@ -16,10 +16,11 @@ class CSVReader: public IDataReader {
 
 public:
     CSVReader(std::string filePath);
-    void exportData() override;
+    std::vector<std::vector<std::string>> exportData() override;
 
 private:
     std::string filePath;
+    std::vector<std::vector<std::string>> lines;
 };
 
 
