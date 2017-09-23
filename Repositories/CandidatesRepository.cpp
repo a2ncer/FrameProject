@@ -11,13 +11,13 @@ CandidatesRepository::CandidatesRepository(IDataReader &dataReader) {
         if (line.size() == 7) {
             Candidate candidate;
 
-            candidate.setFrameNumber(std::stol(line[0]));
+            candidate.setFrameNumber(std::stoi(line[0]));
             candidate.setClassName(line[1]);
             candidate.setConfidence(std::stod(line[2]));
-            candidate.setLeft(std::stol(line[3]));
-            candidate.setTop(std::stol(line[4]));
-            candidate.setWidth(std::stol(line[5]));
-            candidate.setHeight(std::stol(line[6]));
+            candidate.setLeft(std::stoi(line[3]));
+            candidate.setTop(std::stoi(line[4]));
+            candidate.setWidth(std::stoi(line[5]));
+            candidate.setHeight(std::stoi(line[6]));
 
 
             this->save(candidate);
@@ -34,7 +34,7 @@ void CandidatesRepository::save(Candidate &candidate) {
     this->repository.push_back(candidate);
 }
 
-std::vector<Candidate> CandidatesRepository::findByFrameAndClass(long int frameId, std::string className) {
+std::vector<Candidate> CandidatesRepository::findByFrameAndClass(int frameId, std::string className) {
 
     std::vector<Candidate> finded;
 

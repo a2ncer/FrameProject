@@ -4,7 +4,7 @@
 
 #include "Candidate.h"
 
-long int Candidate::getFrameNumber() const {
+int Candidate::getFrameNumber() const {
     return frameNumber;
 }
 
@@ -28,7 +28,7 @@ void Candidate::setConfidence(double confidence) {
     Candidate::confidence = confidence;
 }
 
-long int Candidate::getLeft() const {
+int Candidate::getLeft() const {
     return left;
 }
 
@@ -36,7 +36,7 @@ void Candidate::setLeft(double left) {
     Candidate::left = left;
 }
 
-long int Candidate::getTop() const {
+int Candidate::getTop() const {
     return top;
 }
 
@@ -44,7 +44,7 @@ void Candidate::setTop(double top) {
     Candidate::top = top;
 }
 
-long int Candidate::getWidth() const {
+int Candidate::getWidth() const {
     return width;
 }
 
@@ -52,7 +52,7 @@ void Candidate::setWidth(double width) {
     Candidate::width = width;
 }
 
-long int Candidate::getHeight() const {
+int Candidate::getHeight() const {
     return height;
 }
 

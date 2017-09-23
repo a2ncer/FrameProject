@@ -9,7 +9,7 @@ class CandidatesRepository {
 public:
     CandidatesRepository(IDataReader &dataReader);
     void save(Candidate &candidate);
-    std::vector<Candidate> findByFrameAndClass(long int frameId, std::string);
+    std::vector<Candidate> findByFrameAndClass(int frameId, std::string);
     std::vector<Candidate> findAll();
 private:
     std::vector<Candidate> repository;

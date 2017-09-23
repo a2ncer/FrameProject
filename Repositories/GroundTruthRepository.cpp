@@ -10,12 +10,12 @@ GroundTruthRepository::GroundTruthRepository(IDataReader &dataReader) {
         if (line.size() == 6) {
             GroundTruth groundTruth;
 
-            groundTruth.setFrameNumber(std::stol(line[0]));
+            groundTruth.setFrameNumber(std::stoi(line[0]));
             groundTruth.setClassName(line[1]);
-            groundTruth.setLeft(std::stol(line[2]));
-            groundTruth.setTop(std::stol(line[3]));
-            groundTruth.setWidth(std::stol(line[4]));
-            groundTruth.setHeight(std::stol(line[5]));
+            groundTruth.setLeft(std::stoi(line[2]));
+            groundTruth.setTop(std::stoi(line[3]));
+            groundTruth.setWidth(std::stoi(line[4]));
+            groundTruth.setHeight(std::stoi(line[5]));
 
             this->save(groundTruth);
 
@@ -32,7 +32,7 @@ void GroundTruthRepository::save(GroundTruth &groundTruth) {
     this->repository.push_back(groundTruth);
 }
 
-std::vector<GroundTruth> GroundTruthRepository::findByFrameAndClass(long int frameId, std::string className) {
+std::vector<GroundTruth> GroundTruthRepository::findByFrameAndClass(int frameId, std::string className) {
 
     std::vector<GroundTruth> finded;
     for (auto &item : this->repository) {

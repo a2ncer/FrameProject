@@ -14,7 +14,7 @@ class GroundTruthRepository {
 public:
     GroundTruthRepository(IDataReader &dataReader);
     void save(GroundTruth &groundTruth);
-    std::vector<GroundTruth> findByFrameAndClass(long int frameId, std::string className);
+    std::vector<GroundTruth> findByFrameAndClass(int frameId, std::string className);
     std::vector<GroundTruth> findAll();
 private:
     std::vector<GroundTruth> repository;
