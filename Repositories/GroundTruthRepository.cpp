@@ -1,5 +1,7 @@
 
+#include <algorithm>
 #include "GroundTruthRepository.h"
+#include "../Math/Rectangle.h"
 
 
 GroundTruthRepository::GroundTruthRepository(IDataReader &dataReader) {
@@ -34,18 +36,45 @@ void GroundTruthRepository::save(GroundTruth &groundTruth) {
 
 std::vector<GroundTruth> GroundTruthRepository::findByFrameAndClass(int frameId, std::string className) {
 
-    std::vector<GroundTruth> finded;
+    std::vector<GroundTruth> founded;
     for (auto &item : this->repository) {
         if (item.getFrameNumber() == frameId /*&& item.getClassName().compare(className)==0*/)
-            finded.push_back(item);
+            founded.push_back(item);
     }
 
-    return finded;
+    return founded;
 }
 
 std::vector<GroundTruth> GroundTruthRepository::findAll() {
     return this->repository;
 }
+
+std::map<int, std::map<std::string, std::vector<GroundTruth>>> GroundTruthRepository::groupByFrameAndClass() {
+    std::map<int, std::map<std::string, std::vector<GroundTruth>>> founded;
+
+    for (auto &item : this->repository) {
+        founded[item.getFrameNumber()][item.getClassName()].push_back(item);
+    }
+
+    for(auto &item: founded)
+    {
+       for(auto &byClass: item.second)
+        {
+            std::sort (byClass.second.begin(), byClass.second.end(), comparator);
+        }
+    }
+
+
+
+    return founded;
+}
+
+bool GroundTruthRepository::comparator(GroundTruth first, GroundTruth second) {
+
+    return first.getHeight() * first.getWidth() > second.getHeight() * second.getWidth();
+}
+
+
 
 
 

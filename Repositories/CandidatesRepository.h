@@ -2,6 +2,7 @@
 #define FRAMEPROJECT_CANDIDATESREPOSITORY_H
 
 
+#include <map>
 #include "../CSV/IDataReader.h"
 #include "Models/Candidate.h"
 
@@ -11,8 +12,11 @@ public:
     void save(Candidate &candidate);
     std::vector<Candidate> findByFrameAndClass(int frameId, std::string);
     std::vector<Candidate> findAll();
+    std::map<int ,std::map<std::string,std::vector<Candidate>>> groupByFrameAndClass();
+
 private:
     std::vector<Candidate> repository;
+    static bool comparator(Candidate,Candidate);
 };
 
 

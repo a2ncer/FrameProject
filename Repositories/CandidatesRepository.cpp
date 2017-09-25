@@ -2,6 +2,7 @@
 // Created by alex on 9/20/17.
 //
 
+#include <algorithm>
 #include "CandidatesRepository.h"
 
 CandidatesRepository::CandidatesRepository(IDataReader &dataReader) {
@@ -50,4 +51,29 @@ std::vector<Candidate> CandidatesRepository::findByFrameAndClass(int frameId, st
 
 std::vector<Candidate> CandidatesRepository::findAll() {
     return this->repository;
+}
+
+bool CandidatesRepository::comparator(Candidate first, Candidate second) {
+    return first.getConfidence()>second.getConfidence();
+}
+
+std::map<int, std::map<std::string, std::vector<Candidate>>> CandidatesRepository::groupByFrameAndClass() {
+    std::map<int, std::map<std::string, std::vector<Candidate>>> founded;
+
+    for (auto &item : this->repository) {
+        founded[item.getFrameNumber()][item.getClassName()].push_back(item);
+    }
+
+    for(auto &item: founded)
+    {
+        for(auto &byClass: item.second)
+        {
+            std::sort (byClass.second.begin(), byClass.second.end(), comparator);
+        }
+    }
+
+
+
+    return founded;
+
 }
