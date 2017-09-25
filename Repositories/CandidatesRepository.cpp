@@ -10,15 +10,22 @@ CandidatesRepository::CandidatesRepository(IDataReader &dataReader) {
     for (auto &line : data) {
 
         if (line.size() == 7) {
+
             Candidate candidate;
 
             candidate.setFrameNumber(std::stoi(line[0]));
             candidate.setClassName(line[1]);
             candidate.setConfidence(std::stod(line[2]));
-            candidate.setLeft(std::stoi(line[3]));
-            candidate.setTop(std::stoi(line[4]));
-            candidate.setWidth(std::stoi(line[5]));
-            candidate.setHeight(std::stoi(line[6]));
+
+            Rectangle rectangle;
+
+
+            rectangle.setLeft(std::stoi(line[3]));
+            rectangle.setTop(std::stoi(line[4]));
+            rectangle.setWidth(std::stoi(line[5]));
+            rectangle.setHeight(std::stoi(line[6]));
+
+            candidate.setRectangle(rectangle);
 
 
             this->save(candidate);

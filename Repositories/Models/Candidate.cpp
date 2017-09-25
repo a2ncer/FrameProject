@@ -28,34 +28,24 @@ void Candidate::setConfidence(double confidence) {
     Candidate::confidence = confidence;
 }
 
-int Candidate::getLeft() const {
-    return left;
+
+void Candidate::setDetected(bool detected) {
+    Candidate::detected = detected;
 }
 
-void Candidate::setLeft(double left) {
-    Candidate::left = left;
+bool Candidate::isDetected() const {
+    return detected;
 }
 
-int Candidate::getTop() const {
-    return top;
+void Candidate::setRectangle(const Rectangle &rectangle) {
+    Candidate::rectangle = rectangle;
 }
 
-void Candidate::setTop(double top) {
-    Candidate::top = top;
+Rectangle Candidate::getRectangle() {
+    return rectangle;
 }
 
-int Candidate::getWidth() const {
-    return width;
+Candidate::Candidate() {
+
 }
 
-void Candidate::setWidth(double width) {
-    Candidate::width = width;
-}
-
-int Candidate::getHeight() const {
-    return height;
-}
-
-void Candidate::setHeight(double height) {
-    Candidate::height = height;
-}

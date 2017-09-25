@@ -12,21 +12,59 @@ FrameResolver::FrameResolver(GroundTruthRepository groundTruthRepository, Candid
     //TODO: algorithm of detection here
 
 
-    auto groupedGround = candidatesRepository.groupByFrameAndClass();
+    auto groupedGround = groundTruthRepository.groupByFrameAndClass();
+    auto groupedCandidates = candidatesRepository.groupByFrameAndClass();
 
-    for(auto &item: groupedGround)
-    {
-        std::cout << "Frame:" <<item.first << std::endl;
 
-        for(auto &byClass: item.second)
-        {
-            std::cout << "  " << byClass.first << " count: " << byClass.second.size() <<std::endl;
 
-            for(auto &elem: byClass.second)
-            std::cout << "      " << elem.getConfidence() << std::endl;
+    for(auto &itemGr: groupedGround)
 
-        }
-    }
+        for(auto &byClassGr: itemGr.second)
+
+            for(auto &byClassGrElem: byClassGr.second)
+
+                for(auto &itemCd: groupedCandidates)
+
+                    for(auto &byClassCd: itemCd.second)
+
+                        for(auto &byClassCdElem: byClassCd.second)
+
+                             if(itemGr.first==itemCd.first && byClassGr.first==byClassCd.first)
+                               {
+
+
+                                   InterSection interSection(byClassGrElem.getRectangle(),byClassCdElem.getRectangle());
+
+                                   if(interSection.isInterSected())
+                                   {
+
+                                       double detected = (double) interSection.getInterSectedArea() / (double) interSection.getUnionArea();
+
+                                       if(detected > 0.5) {
+
+                                           std::cout
+                                                   << byClassGrElem.getClassName()
+                                                   << "   "
+                                                   <<byClassGrElem.getFrameNumber()
+                                                   <<"     "
+                                                   <<byClassGrElem.getRectangle().Area()
+                                                   <<"      "
+                                                   <<byClassCdElem.getConfidence()
+
+                                                   <<std::endl;
+
+                                       }
+
+                                   }
+
+
+                               }
+
+
+
+
+
+}
 
 
 
@@ -99,7 +137,7 @@ FrameResolver::FrameResolver(GroundTruthRepository groundTruthRepository, Candid
 //
 //    }
 
-}
+
 
 Report FrameResolver::getReport() {
     return this->report;

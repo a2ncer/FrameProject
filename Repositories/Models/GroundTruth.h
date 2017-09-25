@@ -6,6 +6,8 @@
 #define FRAMEPROJECT_GROUNDTRUTH_H
 
 #include <iostream>
+#include "../../Math/Rectangle.h"
+
 class GroundTruth {
 public:
     int getFrameNumber() const;
@@ -16,29 +18,21 @@ public:
 
     void setClassName(const std::string &className);
 
-    int getLeft() const;
+    void setDetected(bool detected);
 
-    void setLeft(double left);
+    bool isDetected() const;
 
-    int getTop() const;
+    Rectangle getRectangle();
 
-    void setTop(double top);
-
-    int getWidth() const;
-
-    void setWidth(double width);
-
-    int getHeight() const;
-
-    void setHeight(double height);
+    void setRectangle(const Rectangle &rectangle);
 
 private:
     int frameNumber;
     std::string className;
-    int left;
-    int top;
-    int width;
-    int height;
+    Rectangle rectangle;
+    bool detected=false;
+
+
 
 };
 

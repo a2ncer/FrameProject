@@ -6,8 +6,12 @@
 #define FRAMEPROJECT_CANDIDATE_H
 
 #include <iostream>
+#include "../../Math/Rectangle.h"
+
 class Candidate {
 public:
+    Candidate();
+
     int getFrameNumber() const;
 
     void setFrameNumber(int frameNumber);
@@ -20,30 +24,24 @@ public:
 
     void setConfidence(double confidence);
 
-    int getLeft() const;
 
-    void setLeft(double left);
+    void setDetected(bool detected);
 
-    int getTop() const;
+    bool isDetected() const;
 
-    void setTop(double top);
+    Rectangle getRectangle();
 
-    int getWidth() const;
-
-    void setWidth(double width);
-
-    int getHeight() const;
-
-    void setHeight(double height);
+    void setRectangle(const Rectangle &rectangle);
 
 private:
     int frameNumber;
     std::string className;
     double confidence;
-    int left;
-    int top;
-    int width;
-    int height;
+    Rectangle rectangle;
+    bool detected=false;
+
+
+
 };
 
 

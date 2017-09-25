@@ -20,34 +20,18 @@ void GroundTruth::setClassName(const std::string &className) {
     GroundTruth::className = className;
 }
 
-int GroundTruth::getLeft() const {
-    return left;
+void GroundTruth::setDetected(bool detected) {
+    GroundTruth::detected = detected;
 }
 
-void GroundTruth::setLeft(double left) {
-    GroundTruth::left = left;
+bool GroundTruth::isDetected() const {
+    return detected;
 }
 
-int GroundTruth::getTop() const {
-    return top;
+Rectangle GroundTruth::getRectangle()  {
+    return rectangle;
 }
 
-void GroundTruth::setTop(double top) {
-    GroundTruth::top = top;
-}
-
-int GroundTruth::getWidth() const {
-    return width;
-}
-
-void GroundTruth::setWidth(double width) {
-    GroundTruth::width = width;
-}
-
-int GroundTruth::getHeight() const {
-    return height;
-}
-
-void GroundTruth::setHeight(double height) {
-    GroundTruth::height = height;
+void GroundTruth::setRectangle(const Rectangle &rectangle) {
+    GroundTruth::rectangle = rectangle;
 }

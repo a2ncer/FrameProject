@@ -14,10 +14,14 @@ GroundTruthRepository::GroundTruthRepository(IDataReader &dataReader) {
 
             groundTruth.setFrameNumber(std::stoi(line[0]));
             groundTruth.setClassName(line[1]);
-            groundTruth.setLeft(std::stoi(line[2]));
-            groundTruth.setTop(std::stoi(line[3]));
-            groundTruth.setWidth(std::stoi(line[4]));
-            groundTruth.setHeight(std::stoi(line[5]));
+
+            Rectangle rectangle;
+            rectangle.setLeft(std::stoi(line[2]));
+            rectangle.setTop(std::stoi(line[3]));
+            rectangle.setWidth(std::stoi(line[4]));
+            rectangle.setHeight(std::stoi(line[5]));
+
+            groundTruth.setRectangle(rectangle);
 
             this->save(groundTruth);
 
@@ -71,7 +75,7 @@ std::map<int, std::map<std::string, std::vector<GroundTruth>>> GroundTruthReposi
 
 bool GroundTruthRepository::comparator(GroundTruth first, GroundTruth second) {
 
-    return first.getHeight() * first.getWidth() > second.getHeight() * second.getWidth();
+    return first.getRectangle().Area() > second.getRectangle().Area();
 }
 
 

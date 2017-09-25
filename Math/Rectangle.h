@@ -9,14 +9,30 @@
 class Rectangle {
 public:
     Rectangle(long top, long left, long width, long height);
-
+    Rectangle();
     int X1();
     int X2();
     int Y1();
     int Y2();
-    int Width();
-    int Height();
+
     int Area();
+
+    int getTop() const;
+
+    void setTop(int top);
+
+    int getLeft() const;
+
+    void setLeft(int left);
+
+    int getWidth() const;
+
+    void setWidth(int width);
+
+    int getHeight() const;
+
+    void setHeight(int height);
+
 
 private:
     int top;
