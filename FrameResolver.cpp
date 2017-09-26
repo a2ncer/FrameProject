@@ -1,6 +1,4 @@
-//
-// Created by AVAG_inc on 22.09.2017.
-//
+
 
 #include <algorithm>
 #include "FrameResolver.h"
@@ -47,12 +45,13 @@ FrameResolver::FrameResolver(GroundTruthRepository groundTruthRepository, Candid
                                                    << "   "
                                                    <<byClassGrElem.getFrameNumber()
                                                    <<"     "
-                                                   <<byClassGrElem.getRectangle().Area()
+                                                   <<byClassGrElem.getRectangle().Area() //Леха, rectangle я добавил ))
                                                    <<"      "
                                                    <<byClassCdElem.getConfidence()
 
                                                    <<std::endl;
 
+                                           break;
                                        }
 
                                    }

@@ -1,6 +1,4 @@
-//
-// Created by AVAG_inc on 22.09.2017.
-//
+
 
 #ifndef FRAMEPROJECT_FRAMERESOLVER_H
 #define FRAMEPROJECT_FRAMERESOLVER_H

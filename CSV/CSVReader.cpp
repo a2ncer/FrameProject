@@ -1,6 +1,4 @@
-//
-// Created by alex on 9/20/17.
-//
+
 
 #include "CSVReader.h"
 #include "FileNotFoundException.h"

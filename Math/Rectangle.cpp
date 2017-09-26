@@ -1,6 +1,3 @@
-//
-// Created by alex on 9/23/17.
-//
 
 #include "Rectangle.h"
 

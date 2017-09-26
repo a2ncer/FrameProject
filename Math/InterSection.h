@@ -1,6 +1,4 @@
-//
-// Created by alex on 9/23/17.
-//
+
 
 #ifndef FRAMEPROJECT_INTERSECTION_H
 #define FRAMEPROJECT_INTERSECTION_H

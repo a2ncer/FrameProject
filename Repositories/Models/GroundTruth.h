@@ -1,6 +1,4 @@
-//
-// Created by alex on 9/20/17.
-//
+
 
 #ifndef FRAMEPROJECT_GROUNDTRUTH_H
 #define FRAMEPROJECT_GROUNDTRUTH_H
