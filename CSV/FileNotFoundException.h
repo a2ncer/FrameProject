@@ -5,7 +5,6 @@
 
 #include <iostream>
 #include <exception>
-#include <bits/basic_string.h>
 #include <sstream>
 
 class FileNotFoundException: public std::runtime_error {

@@ -1,0 +1,53 @@
+With CMake 3.8 or higher (c++ or clang++ compilers) execute commands in root of project:
+
+cmake -B./build -H./
+cd build
+make
+./FrameProject
+
+
+
+
+For c++ execute commands in root of project:
+
+mkdir build
+c++    -g   -std=gnu++11 -o main.cpp.o -c main.cpp
+c++    -g   -std=gnu++11 -o CSV/CSVReader.cpp.o -c CSV/CSVReader.cpp
+c++    -g   -std=gnu++11 -o CSV/FileNotFoundException.cpp.o -c CSV/FileNotFoundException.cpp
+c++    -g   -std=gnu++11 -o Repositories/GroundTruthRepository.cpp.o -c Repositories/GroundTruthRepository.cpp
+c++    -g   -std=gnu++11 -o Repositories/Models/GroundTruth.cpp.o -c Repositories/Models/GroundTruth.cpp
+c++    -g   -std=gnu++11 -o Repositories/Models/Candidate.cpp.o -c Repositories/Models/Candidate.cpp
+c++    -g   -std=gnu++11 -o Repositories/CandidatesRepository.cpp.o -c Repositories/CandidatesRepository.cpp
+c++    -g   -std=gnu++11 -o FrameResolver.cpp.o -c FrameResolver.cpp
+c++    -g   -std=gnu++11 -o Report.cpp.o -c Report.cpp
+c++    -g   -std=gnu++11 -o Math/InterSection.cpp.o -c Math/InterSection.cpp
+c++    -g   -std=gnu++11 -o Math/Rectangle.cpp.o -c Math/Rectangle.cpp
+c++    -g   main.cpp.o CSV/CSVReader.cpp.o CSV/FileNotFoundException.cpp.o Repositories/GroundTruthRepository.cpp.o Repositories/Models/GroundTruth.cpp.o Repositories/Models/Candidate.cpp.o Repositories/CandidatesRepository.cpp.o FrameResolver.cpp.o Report.cpp.o Math/InterSection.cpp.o Math/Rectangle.cpp.o  -o build/FrameProject 
+
+cd build
+./FrameProject
+
+
+
+For clang++ execute commands in root of project:
+
+mkdir build
+clang++    -g   -std=gnu++11 -o main.cpp.o -c main.cpp
+clang++    -g   -std=gnu++11 -o CSV/CSVReader.cpp.o -c CSV/CSVReader.cpp
+clang++    -g   -std=gnu++11 -o CSV/FileNotFoundException.cpp.o -c CSV/FileNotFoundException.cpp
+clang++    -g   -std=gnu++11 -o Repositories/GroundTruthRepository.cpp.o -c Repositories/GroundTruthRepository.cpp
+clang++    -g   -std=gnu++11 -o Repositories/Models/GroundTruth.cpp.o -c Repositories/Models/GroundTruth.cpp
+clang++    -g   -std=gnu++11 -o Repositories/Models/Candidate.cpp.o -c Repositories/Models/Candidate.cpp
+clang++    -g   -std=gnu++11 -o Repositories/CandidatesRepository.cpp.o -c Repositories/CandidatesRepository.cpp
+clang++    -g   -std=gnu++11 -o FrameResolver.cpp.o -c FrameResolver.cpp
+clang++    -g   -std=gnu++11 -o Report.cpp.o -c Report.cpp
+clang++    -g   -std=gnu++11 -o Math/InterSection.cpp.o -c Math/InterSection.cpp
+clang++    -g   -std=gnu++11 -o Math/Rectangle.cpp.o -c Math/Rectangle.cpp
+clang++    -g   main.cpp.o CSV/CSVReader.cpp.o CSV/FileNotFoundException.cpp.o Repositories/GroundTruthRepository.cpp.o Repositories/Models/GroundTruth.cpp.o Repositories/Models/Candidate.cpp.o Repositories/CandidatesRepository.cpp.o FrameResolver.cpp.o Report.cpp.o Math/InterSection.cpp.o Math/Rectangle.cpp.o  -o build/FrameProject 
+
+cd build
+./FrameProject
+
+
+
+
